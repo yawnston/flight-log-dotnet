@@ -27,7 +27,7 @@ namespace FlightLogNet.Tests.Repositories
 			TestDatabaseGenerator.CreateTestDatabase();
 		}
 
-		[Fact(Skip = "Not correctly implemented.")]
+		[Fact]
 		public void GetFlightsOfTypeGlider_Return2Gliders()
 		{
 			// Arrange
@@ -36,13 +36,13 @@ namespace FlightLogNet.Tests.Repositories
 
 			// Act
 			// TODO 2.2: Upravte volanou metodu, aby výsledek vrátil pouze lety, které jsou kluzáky.
-			var result = flightRepository.GetAllFlights();
+			var result = flightRepository.GetAllFlights(FlightType.Glider);
 
 			// Assert
 			Assert.True(result.Count == 2, "In test database is 2 gliders.");
 		}
 
-		[Fact(Skip = "Not correctly implemented.")]
+		[Fact]
 		public void GetAirplanesInAir_ReturnFlightModels()
 		{
 			// Arrange
@@ -51,7 +51,7 @@ namespace FlightLogNet.Tests.Repositories
 
 			// Act
 			// TODO 2.4: Doplòte metodu repozitáøe a odstraòte pøeskoèení testu (skip)
-			IList<FlightModel> result = null;
+			IList<FlightModel> result = flightRepository.GetAirplanesInAir();
 
 			// Assert
 			Assert.NotEmpty(result);
@@ -70,7 +70,7 @@ namespace FlightLogNet.Tests.Repositories
 
 			// Assert
 			Assert.True(result.Count == 3, "In test database is 3 flight starts");
-			Assert.True(flights[0] == null, "Last flight start should have null glider.");
+			Assert.True(flights[4] == null, "Last flight start should have null glider.");
 		}
 	}
 }

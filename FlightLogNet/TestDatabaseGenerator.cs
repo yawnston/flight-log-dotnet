@@ -1,6 +1,7 @@
 ﻿namespace FlightLogNet
 {
     using System;
+    using FlightLogNet.Models;
     using FlightLogNet.Repositories;
     using FlightLogNet.Repositories.Entities;
 
@@ -68,7 +69,8 @@
                         Airplane = dbContext.Airplanes.Find(1L),
                         Pilot = dbContext.Persons.Find(12L),
                         Copilot = null,
-                        Task = "VLEK"
+                        Task = "VLEK",
+                        Type = FlightType.Glider
                     },
                     new Flight
                     {
@@ -78,7 +80,8 @@
                         Airplane = dbContext.Airplanes.Find(2L),
                         Pilot = dbContext.Persons.Find(3L),
                         Copilot = null,
-                        Task = "Tahac"
+                        Task = "Tahac",
+                        Type = FlightType.Towplane
                     },
                     new Flight
                     {
@@ -88,7 +91,8 @@
                         Airplane = dbContext.Airplanes.Find(1L),
                         Pilot = dbContext.Persons.Find(5L),
                         Copilot = null,
-                        Task = "VLEK"
+                        Task = "VLEK",
+                        Type = FlightType.Glider
                     },
                     new Flight
                     {
@@ -98,7 +102,8 @@
                         Airplane = dbContext.Airplanes.Find(2L),
                         Pilot = dbContext.Persons.Find(3L),
                         Copilot = null,
-                        Task = "Tahac"
+                        Task = "Tahac",
+                        Type = FlightType.Towplane
                     },
                     new Flight
                     {
@@ -108,7 +113,8 @@
                         Airplane = dbContext.Airplanes.Find(2L),
                         Pilot = dbContext.Persons.Find(12L),
                         Copilot = null,
-                        Task = "Tahac"
+                        Task = "Tahac",
+                        Type = FlightType.Towplane
                     });
 
                 dbContext.FlightStarts.AddRange(
