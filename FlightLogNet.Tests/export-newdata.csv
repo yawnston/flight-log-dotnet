@@ -1,0 +1,6 @@
+FlightId,TakeoffTime,LandingTime,Immatriculation,Type,Pilot,Copilot,Task,TowplaneID,GliderID
+1,04/08/2020 16:03:45,,OK-V23424,Zlín Z-42M,Lenka Kiasová," ",VLEK,4,1
+4,04/08/2020 16:03:45,,OK-B123,L-13A Blaník,Silvie Hronová," ",Tahac,4,1
+24057,04/08/2020 14:33:45,,OK-V23424,Zlín Z-42M,Petr Hrubec," ",VLEK,24058,24057
+24058,04/08/2020 14:33:45,,OK-B123,L-13A Blaník,Silvie Hronová," ",Tahac,24058,24057
+444,01/07/2020 16:47:10,01/07/2020 17:17:10,OK-B123,L-13A Blaník,Lenka Kiasová," ",Tahac,444,

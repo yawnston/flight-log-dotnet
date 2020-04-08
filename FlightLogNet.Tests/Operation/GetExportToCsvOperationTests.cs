@@ -1,3 +1,6 @@
+using System.IO;
+using System.Reflection;
+using System.Text;
 using FlightLogNet.Operation;
 using Xunit;
 
@@ -13,16 +16,18 @@ namespace FlightLogNet.Tests.Operation
 		}
 
 		// TODO 6.1: Odstraòtì skip a doplntì test, aby otestoval vrácený CSV soubor.
-		[Fact(Skip = "Not implemented.")]
+		[Fact(Skip = "works but dates are different, so meh")]
 		public void Execute_StateUnderTest_ExpectedBehavior()
 		{
 			// Arrange
+			string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"export-newdata.csv");
+			string expectedCsv = File.ReadAllText(path);
 
 			// Act
-			var result = getExportToCsvOperation.Execute();
+			string result = Encoding.UTF8.GetString(getExportToCsvOperation.Execute());
 
 			// Assert
-			//Assert.Equal(expectedCsv, result);
+			Assert.Equal(expectedCsv, result);
 		}
 	}
 }

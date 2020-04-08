@@ -33,10 +33,10 @@ namespace FlightLogNet.Tests.Operation
 		public void Execute_ShouldReturnNull()
 		{
 			// Arrange
-			var createPersonOperation = CreateCreatePersonOperation();
+			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
 
 			// Act
-			var result = createPersonOperation.Execute(null);
+			long? result = createPersonOperation.Execute(null);
 
 			// Assert
 			Assert.Null(result);
@@ -47,7 +47,7 @@ namespace FlightLogNet.Tests.Operation
 		public void Execute_ShouldCreateGuest()
 		{
 			// Arrange
-			var createPersonOperation = CreateCreatePersonOperation();
+			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
 			PersonModel personModel = new PersonModel
 			{
 				Address = new AddressModel { City = "NY", PostalCode = "456", Street = "2nd Ev", Country = "USA" },
@@ -57,7 +57,7 @@ namespace FlightLogNet.Tests.Operation
 			mockPersonRepository.Setup(repository => repository.AddGuestPerson(personModel)).Returns(10);
 
 			// Act
-			var result = createPersonOperation.Execute(personModel);
+			long? result = createPersonOperation.Execute(personModel);
 
 			// Assert
 			Assert.True(result > 0);
@@ -68,7 +68,7 @@ namespace FlightLogNet.Tests.Operation
 		public void Execute_ShouldReturnExistingClubMember()
 		{
 			// Arrange
-			var createPersonOperation = CreateCreatePersonOperation();
+			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
 			PersonModel personModel = new PersonModel
 			{
 				FirstName = "Jan",
@@ -79,7 +79,7 @@ namespace FlightLogNet.Tests.Operation
 			mockPersonRepository.Setup(repository => repository.TryGetPerson(personModel, out id)).Returns(true);
 
 			// Act
-			var result = createPersonOperation.Execute(personModel);
+			long? result = createPersonOperation.Execute(personModel);
 
 			// Assert
 			Assert.Equal(id, result);
@@ -89,14 +89,27 @@ namespace FlightLogNet.Tests.Operation
 		[Fact]
 		public void Execute_ShouldCreateNewClubMember()
 		{
-			// Arrange
-
 			// TODO 7.1: Naimplementujte test s použitím mockù
 
+			// Arrange
+			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
+			PersonModel personModel = new PersonModel
+			{
+				FirstName = "Angelina",
+				LastName = "Jolie",
+				MemberId = 33
+			};
+			long id = 666;
+			mockPersonRepository.Setup(repository => repository.TryGetPerson(personModel, out id)).Returns(false);
+			mockPersonRepository.Setup(repository => repository.CreateClubMember(personModel)).Returns(id);
+			mockClubUserDatabase.Setup(repository => repository.TryGetClubUser(personModel.MemberId, out personModel)).Returns(true);
+
 			// Act
-			
+			long? result = createPersonOperation.Execute(personModel);
+
 			// Assert
-			
+			Assert.Equal(id, result);
+			mockRepository.VerifyAll();
 		}
 	}
 }
