@@ -24,7 +24,7 @@ namespace FlightLogNet.Tests.Repositories
 
 		private void RenewDatabase()
 		{
-			TestDatabaseGenerator.CreateTestDatabase();
+			DatabaseGenerator.CreateTestDatabase();
 		}
 
 		[Fact]

@@ -8,6 +8,7 @@
     using Microsoft.Extensions.Logging;
 
     [ApiController]
+    [RequireHttps]
     [Route("[controller]")]
     public class FlightController : ControllerBase
     {

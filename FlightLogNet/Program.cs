@@ -14,7 +14,8 @@ namespace FlightLogNet
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<FlightLogNet.Startup>();
+                    webBuilder.UseUrls("https://flightlog.lan/")
+                        .UseStartup<FlightLogNet.Startup>();
                 });
     }
 }

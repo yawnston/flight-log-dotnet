@@ -56,7 +56,11 @@ namespace FlightLogNet
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                TestDatabaseGenerator.RenewDatabase();
+                DatabaseGenerator.RenewDatabase();
+            }
+            else
+            {
+                DatabaseGenerator.TryCreateNewDatabase();
             }
 
             app.UseHttpsRedirection();
