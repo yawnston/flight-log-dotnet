@@ -17,7 +17,6 @@
             this.mapper = mapper;
         }
 
-        // TODO 2.1: Upravte metodu tak, aby vrátila pouze lety specifického typu
         public IList<FlightModel> GetAllFlights(FlightType flightType)
         {
             using var dbContext = new LocalDatabaseContext();
@@ -26,8 +25,6 @@
             return this.mapper.ProjectTo<FlightModel>(flights).ToList();
         }
 
-        // TODO 2.3: Vytvořte metodu, která načte letadla, která jsou ve vzduchu, seřadí je od nejstarších,
-        // a v případě shody dá vlečné pred kluzák, který táhne
         public IList<FlightModel> GetAirplanesInAir()
         {
             using var dbContext = new LocalDatabaseContext();

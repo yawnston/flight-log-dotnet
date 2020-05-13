@@ -89,8 +89,6 @@ namespace FlightLogNet.Tests.Operation
 		[Fact]
 		public void Execute_ShouldCreateNewClubMember()
 		{
-			// TODO 7.1: Naimplementujte test s použitím mockù
-
 			// Arrange
 			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
 			PersonModel personModel = new PersonModel

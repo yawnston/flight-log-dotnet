@@ -10,7 +10,6 @@
     {
         private readonly string baseAddress;
 
-        // TODO 8.1: Přidejte si přes dependency injection configuraci
         public ClubUserDatabase(IConfiguration configuration)
         {
             baseAddress = configuration["ClubUsersApi"];
@@ -31,7 +30,6 @@
 
         private IList<ClubUser> ReceiveClubUsers()
         {
-            // TODO 8.2: Naimplementujte volání endpointu ClubDB pomocí RestSharp
             RestClient client = new RestClient(baseAddress);
             RestRequest request = new RestRequest("club/user", DataFormat.Json);
 

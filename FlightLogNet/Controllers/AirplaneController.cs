@@ -20,10 +20,6 @@
             this.airplaneFacade = airplaneFacade;
         }
 
-        // TODO 3.1: Vystavte REST HTTPGet metodu vracející seznam klubových letadel
-        // Letadla získáte voláním airplaneFacade
-        // dotazované URL je /airplane
-        // Odpověď by měla být kolekce AirplaneModel
         [HttpGet]
         public IEnumerable<AirplaneModel> GetClubAirplanes()
         {

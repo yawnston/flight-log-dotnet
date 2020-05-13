@@ -15,8 +15,7 @@ namespace FlightLogNet.Tests.Operation
 			this.getExportToCsvOperation = getExportToCsvOperation;
 		}
 
-		// TODO 6.1: Odstraòtì skip a doplntì test, aby otestoval vrácený CSV soubor.
-		[Fact(Skip = "works but dates are different, so meh")]
+		[Fact(Skip = "works but dates are different")]
 		public void Execute_StateUnderTest_ExpectedBehavior()
 		{
 			// Arrange
