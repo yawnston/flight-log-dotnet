@@ -32,6 +32,8 @@ namespace FlightLogNet.Tests.Operation
 		[Fact]
 		public void Execute_ShouldReturnNull()
 		{
+			Assert.True(false);
+
 			// Arrange
 			CreatePersonOperation createPersonOperation = CreateCreatePersonOperation();
 
